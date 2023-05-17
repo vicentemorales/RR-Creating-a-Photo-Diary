@@ -1,24 +1,7 @@
-import { koalas } from './koalas.js'
-import { renderKoalaList } from './renderKoalaList.js'
-import { activeKoala , selectKoala } from './selectKoala.js'
-
-// Called once when the page loads, and again every time a koala is selected
-export let render = () => {
-    let oldPage=  document.querySelector('.koala-container')
-    let newPage;
-    if(activeKoala){
-        newPage = renderActiveKoala(activeKoala)
-    } else {
-        newPage = renderKoalaList(koalas)
-    }
-    newPage.classList.add('koala-container')
-    oldPage.replaceWith(newPage)
-}
-
 
 
 // Renders a big image of a selected koala
-let renderActiveKoala = koala => {
+export let renderActiveKoala = koala => {
     let activeKoalaContainer = document.createElement('div')
     let backButton = document.createElement('button')
     let backIcon = document.createElement('i')
@@ -48,6 +31,3 @@ let renderActiveKoala = koala => {
 
     return activeKoalaContainer
 }
-
-// Render the page after all functions are defined
-render()
